@@ -1,17 +1,21 @@
 
 <template>
   <div id="typeSelector">
-    <div class="row" style="padding-right: 0px;padding-left: 0px;background: rgba(0,0,0,0.1)">
-      <div class="panel-heading" role="tab"  id="menuButton">
-            <i class="icon-chevron-left icon-2x"></i>
+    <div class="col-lg-1 col-md-1 col-sm-4" >
+      <div class="panel-heading" role="tab" id="heading2"  >
+        <a data-toggle="collapse" data-parent="" href="" aria-expanded="false" aria-controls="collapse3" class="collapsed">
+          <i id="selectLeft"  class="icon-chevron-left icon-2x"></i>
+          <i id="selectRight" class="icon-chevron-right icon-2x"></i>
+        </a>
       </div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4">
-    <aside class="sidebar show perfectScrollbar">
+    <aside  id="selectControl" class="sidebar  perfectScrollbar">
       <div id="solso-sidebar">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
           <div class="panel panel-default">
+
+
+
             <div class="panel-heading" role="tab" id="heading3">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="collapsed">
@@ -114,8 +118,25 @@
 <script>
   export default {
     mounted: function() {
+
       $(".form_datetime").datetimepicker({
         format: "dd MM yyyy - hh:ii"
+      });
+
+      $("#selectControl").css("left","0px");
+      $("#selectLeft").show();
+      $("#selectRight").hide();
+
+      $("#selectLeft").click (function(){
+        $("#selectLeft").hide();
+        $("#selectRight").show();
+        $("#selectControl").css("left","-300px");
+      });
+
+      $("#selectRight").click (function(){
+        $("#selectLeft").show();
+        $("#selectRight").hide();
+        $("#selectControl").css("left","0px");
       });
     }
   }
@@ -123,7 +144,6 @@
 </script>
 
 <style>
-
 
 
 </style>
