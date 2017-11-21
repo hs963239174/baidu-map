@@ -8,7 +8,7 @@
 /* === HTML ELEMENTS === */
 	* {
 		outline: none !important;
-		border-radius: 0 !important;
+		border-radius: 0 ;
 	}
 
 	body {
@@ -173,11 +173,11 @@
 	}
 	.list-group-item:hover {
 		background: #365167;
-        padding-left: 15px;
+       /* padding-left: 15px;
 		transition-delay: 0s;
         transition-duration: 0.3s;
         transition-property: all;
-        transition-timing-function: linear;
+        transition-timing-function: linear;*/
 	}
 	a.list-group-item {
 		color: #FFF;
