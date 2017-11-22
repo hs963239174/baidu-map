@@ -18,8 +18,9 @@
     },
     methods:{
       //初始化覆盖物风格
-      initIconStyle(){
+      initIconStyle(iconID){
         var div = document.createElement("div");
+        div.id=iconID;
         div.innerHTML="<span class='label badge-important'>摄像头一</span>\
                       <i class='icon-facetime-video icon-3x'></i>";
         div.style.position="absolute";
@@ -27,7 +28,7 @@
       },
 
       //初始化覆盖物对象
-      initIconClass(html){
+      initIconClass(html,map,center){
         // 定义自定义覆盖物的构造函数
         function SquareOverlay(center){
           this._center = center;
@@ -39,9 +40,9 @@
         SquareOverlay.prototype.initialize = function(map){
           this._map = map;
           this._html = html;
-          console.log(html)
           map.getPanes().markerPane.appendChild(this._html);
           this._div = html;
+          this._id = html.id;
           return html;
         }
 
@@ -49,8 +50,9 @@
         SquareOverlay.prototype.draw = function(){
           // 根据地理坐标转换为像素坐标，并设置给容器
           var position = this._map.pointToOverlayPixel(this._center);
-          this._div.style.left = position.x - 43 / 2 + "px";
-          this._div.style.top = position.y - 42 / 2 + "px";
+          console.log( $("#"+this._id));
+          $("#"+this._id).css("left",position.x - 43 / 2 + "px");
+          $("#"+this._id).css("top",position.y - 42 / 2 + "px");
         }
 
         SquareOverlay.prototype.show = function(){
@@ -65,11 +67,6 @@
           }
         }
 
-        return SquareOverlay;
-      },
-
-      addIconToMap(SquareOverlay,map,center)
-      {
         var mySquare = new SquareOverlay(center);
         map.addOverlay(mySquare);
         return mySquare;

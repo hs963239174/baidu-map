@@ -29,20 +29,17 @@
       map.addControl(new BMap.MapTypeControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT }));//设置地图类型切换按钮
       map.setCurrentCity("惠州市");
 
-      var html = this.$refs.newCamera.initIconStyle();
-      var SquareOverlay = this.$refs.newCamera.initIconClass(html);//初始化摄像头对象
-      var square = this.$refs.newCamera.addIconToMap(SquareOverlay,map,point);//添加摄像头到地图
+      var html = this.$refs.newCamera.initIconStyle("id1");
+      var square = this.$refs.newCamera.initIconClass(html,map,point);//初始化摄像头对象
       //this.$refs.newCamera.showIcon(square);//通过覆盖物实体显示对象
       //this.$refs.newCamera.hideIcon(square);
 
 
       ////-------------------------------------TEST----------------------------------------------------------////
-      var html1 = this.$refs.newCamera.initIconStyle();
-      var html2 = this.$refs.newCamera.initIconStyle();
-      var SquareOverlay1 = this.$refs.newCamera.initIconClass(html1);//初始化摄像头对象
-      var SquareOverlay2 = this.$refs.newCamera.initIconClass(html2);//初始化摄像头对象
-      this.$refs.newCamera.addIconToMap(SquareOverlay1,map,new BMap.Point(114.356995,23.014017));//添加摄像头到地图
-      this.$refs.newCamera.addIconToMap(SquareOverlay2,map,new BMap.Point(114.269895,22.964778));//添加摄像头到地图
+      var html1 = this.$refs.newCamera.initIconStyle("id2");
+      var html2 = this.$refs.newCamera.initIconStyle("id3");
+      var square1 = this.$refs.newCamera.initIconClass(html1,map,new BMap.Point(114.356995,23.014017));//初始化摄像头对象
+      var square2 = this.$refs.newCamera.initIconClass(html2,map,new BMap.Point(114.316995,23.014017));//初始化摄像头对象
       ////-------------------------------------TEST----------------------------------------------------------////
     }
   }
