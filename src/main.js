@@ -17,18 +17,16 @@ import './assets/js/index.js'
 Vue.config.productionTip = false
 
 new Vue({
-  el: '#typeSelector',
+  el: '#mainPage',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  mounted:function () {
+  document.oncontextmenu = function() {
+    return false;
+  }
+}
 })
 
-window.onload = (function(){
-  var map = new BMap.Map("mapContent");          // 创建地图实例
-  var point = new BMap.Point(114.328428,22.994956);  // 创建点坐标
-  map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别
-  map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-
-});
 
 

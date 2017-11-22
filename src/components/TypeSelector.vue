@@ -1,7 +1,7 @@
 
 <template>
-  <div id="typeSelector">
-    <div class="col-lg-1 col-md-1 col-sm-4" >
+  <div id="typeSelector" >
+    <div class="col-lg-12 col-md-12 col-sm-12" style="background-color:Rgba(0,0,0,0.1);">
 
       <div class="panel-heading" role="tab" id="heading2"  >
         <a data-toggle="collapse" data-parent="" href="" aria-expanded="false"
@@ -55,7 +55,8 @@
                  aria-labelledby="heading4" aria-expanded="false">
               <div>
                 <form class="form-search list-group-item">
-                  <input id="carLisence" class="input-medium search-query" type="text" flag="0" value="车牌号"/>
+                  <input id="carLisence" class="input-medium search-query" type="text"
+                         flag="0" value="" placeholder="车牌号"/>
                   <i id="addCarLisence" class="addType icon-plus icon-large" flag="0"></i>
                 </form>
               </div>
@@ -76,12 +77,12 @@
                  aria-labelledby="heading5" aria-expanded="false">
               <div>
                 <div class="input-append date form_datetime list-group-item">
-                  <input id="startTime" size="16" type="text" flag="0" value="开始时间" readonly>
+                  <input id="startTime" size="16" type="text" flag="0" value="" placeholder="开始时间" readonly>
                   <span class="add-on"><i class="icon-th"></i></span>
                   <i id="addStartTime" class="addType icon-plus icon-large" flag="0"></i>
                 </div>
                 <div class="input-append date form_datetime list-group-item">
-                  <input id="endTime" size="16" type="text" flag="0" value="结束时间" readonly>
+                  <input id="endTime" size="16" type="text" flag="0" value="" placeholder="结束时间" readonly>
                   <span class="add-on"><i class="icon-th"></i></span>
                   <i id="addEndTime" class="addType icon-plus icon-large" flag="0"></i>
                 </div>
@@ -197,17 +198,17 @@
           //添加搜索条件标签
           if(id == "addStartTime")
           {
-            value = "<span id='"+targetID+"' class='label badge-important'>"+$("#startTime").val()+"</span>";
+            value = "<span id='"+targetID+"' class='label badge-important'>开始时间："+$("#startTime").val()+"</span>";
             $("#searchBy").append(value);
           }
           else if(id == "addEndTime")
           {
-            value = "<span id='"+targetID+"' class='label badge-important'>"+$("#endTime").val()+"</span>";
+            value = "<span id='"+targetID+"' class='label badge-important'>结束时间："+$("#endTime").val()+"</span>";
             $("#searchBy").append(value);
           }
           else if(id == "addCarLisence")
           {
-            value = "<span id='"+targetID+"' class='label badge-important'>"+$("#carLisence").val()+"</span>";
+            value = "<span id='"+targetID+"' class='label badge-important'>车牌号："+$("#carLisence").val()+"</span>";
             $("#searchBy").append(value);
           }
           else

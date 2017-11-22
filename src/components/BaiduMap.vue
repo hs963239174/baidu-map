@@ -1,0 +1,50 @@
+<template>
+
+  <div id="mainPage" class="container-fluid">
+      <div id="mapContent" class="userMap" style="z-index: 0;"></div>
+      <TypeSelector></TypeSelector>
+      <DeviceInfo ref="newCamera"></DeviceInfo>
+  </div>
+</template>
+
+<script>
+  import DeviceInfo from "@/components/DeviceInfo"
+  import TypeSelector from '@/components/TypeSelector'
+
+
+  export default {
+    name: 'baiduMap',
+    components: {
+      DeviceInfo,
+      TypeSelector
+    },
+    mounted:function () {
+      var map = new BMap.Map("mapContent",{enableMapClick:false});          // 创建地图实例
+      var point = new BMap.Point(114.328428,22.994956);  // 创建点坐标
+      map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别
+      map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+      map.clearOverlays();
+
+      map.addControl(new BMap.ScaleControl({anchor:BMAP_ANCHOR_TOP_RIGHT}));//设置标尺
+      map.addControl(new BMap.MapTypeControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT }));//设置地图类型切换按钮
+      map.setCurrentCity("惠州市");
+
+      var html = this.$refs.newCamera.initIconStyle();
+      var SquareOverlay = this.$refs.newCamera.initIconClass(html);//初始化摄像头对象
+      var square = this.$refs.newCamera.addIconToMap(SquareOverlay,map,point);//添加摄像头到地图
+      //this.$refs.newCamera.showIcon(square);//通过覆盖物实体显示对象
+      //this.$refs.newCamera.hideIcon(square);
+
+
+      ////-------------------------------------TEST----------------------------------------------------------////
+      var html1 = this.$refs.newCamera.initIconStyle();
+      var html2 = this.$refs.newCamera.initIconStyle();
+      var SquareOverlay1 = this.$refs.newCamera.initIconClass(html1);//初始化摄像头对象
+      var SquareOverlay2 = this.$refs.newCamera.initIconClass(html2);//初始化摄像头对象
+      this.$refs.newCamera.addIconToMap(SquareOverlay1,map,new BMap.Point(114.356995,23.014017));//添加摄像头到地图
+      this.$refs.newCamera.addIconToMap(SquareOverlay2,map,new BMap.Point(114.269895,22.964778));//添加摄像头到地图
+      ////-------------------------------------TEST----------------------------------------------------------////
+    }
+  }
+</script>
+
