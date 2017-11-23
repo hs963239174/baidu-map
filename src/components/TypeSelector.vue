@@ -11,7 +11,7 @@
         </a>
       </div>
 
-    <aside  id="selectControl" class="sidebar  perfectScrollbar">
+    <aside  id="selectControl" class="sidebar">
       <div id="solso-sidebar" style="top:0px;">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 

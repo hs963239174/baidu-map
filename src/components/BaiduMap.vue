@@ -3,6 +3,7 @@
   <div id="mainPage" class="container-fluid">
       <div id="mapContent" class="userMap" style="z-index: 0;"></div>
       <TypeSelector></TypeSelector>
+      <SearchResult></SearchResult>
       <DeviceInfo ref="newCamera"></DeviceInfo>
   </div>
 </template>
@@ -10,13 +11,15 @@
 <script>
   import DeviceInfo from "@/components/DeviceInfo"
   import TypeSelector from '@/components/TypeSelector'
+  import SearchResult from '@/components/SearchResult'
 
 
   export default {
     name: 'baiduMap',
     components: {
       DeviceInfo,
-      TypeSelector
+      TypeSelector,
+      SearchResult
     },
     mounted:function () {
       var map = new BMap.Map("mapContent",{enableMapClick:false});          // 创建地图实例

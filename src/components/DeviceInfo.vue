@@ -21,7 +21,7 @@
       initIconStyle(iconID){
         var div = document.createElement("div");
         div.id=iconID;
-        div.innerHTML="<span class='label badge-important'>摄像头一</span>\
+        div.innerHTML="<span class='label badge-important'>摄像头："+iconID+"</span>\
                       <i class='icon-facetime-video icon-3x'></i>";
         div.style.position="absolute";
         return div;
@@ -50,7 +50,6 @@
         SquareOverlay.prototype.draw = function(){
           // 根据地理坐标转换为像素坐标，并设置给容器
           var position = this._map.pointToOverlayPixel(this._center);
-          console.log( $("#"+this._id));
           $("#"+this._id).css("left",position.x - 43 / 2 + "px");
           $("#"+this._id).css("top",position.y - 42 / 2 + "px");
         }

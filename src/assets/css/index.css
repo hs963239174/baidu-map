@@ -71,3 +71,21 @@ body,html{
 .alert-search{
   text-align: left;
 }
+
+#searchContent {
+  background-color: #6595BC;
+  height: 100%;
+  padding: 0px;
+  position: fixed;
+  left: auto;
+  width: 0px;
+  right: 0px;
+  top: 50px;
+  z-index: 1;
+  transition: left 0.5s;
+  -o-transition: left 0.5s;
+  -moz-transition: left 0.5s;
+  -webkit-transition: left 0.5s;
+  overflow-y: hidden;
+}
+
