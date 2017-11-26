@@ -145,6 +145,7 @@
 </template>
 
 <script>
+
   export default {
     mounted: function() {
       //日期插件初始化
@@ -245,7 +246,7 @@
         else
         {
           //启动搜索
-
+          //this.searchStart11();
         }
       });
 
