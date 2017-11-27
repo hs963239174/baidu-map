@@ -1,9 +1,4 @@
-/* 官网侧边导航组件样式sidebar.css
- * By: nani heyuan@baidu.com
- * Version: 1.0
- * Date: 7-25
- *
- */
+
 /*公共变量*/
 /*公共样式*/
 .common-style .width {
@@ -65,28 +60,7 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 }*/
-/*自动以滚动条样式*/
-/**兼容IE浏览器样式**/
-#sidebar-scrollTop {
-  scrollbar-arrow-color: #f4f6f7;
-  /*图6,三角箭头的颜色*/
-  scrollbar-face-color: #c5c8c9;
-  /*图5,立体滚动条的颜色*/
-  scrollbar-3dlight-color: #e3e7e8;
-  /*图1,立体滚动条亮边的颜色*/
-  scrollbar-highlight-color: #e3e7e8;
-  /*图2,滚动条空白部分的颜色*/
-  scrollbar-shadow-color: #76B4B4;
-  /*图3,立体滚动条阴影的颜色*/
-  scrollbar-darkshadow-color: #e3e7e8;
-  /*图4,立体滚动条强阴影的颜色*/
-  scrollbar-track-color: #e3e7e8;
-  /*图7,立体滚动条背景颜色*/
-  scrollbar-base-color: #f8f8f8;
-  /*滚动条的基本颜色*/
-  Cursor: ;
-  /*自定义个性鼠标*/
-}
+
 /**兼容chrom浏览器样式**/
 #sidebar-scrollTop::-webkit-scrollbar {
   width: 10px;
@@ -109,7 +83,7 @@
 #sidebar-scrollTop::-webkit-scrollbar-corner {
   background: #e3e7e8;
 }
-#sidebar-scrollTop::-webkit-scrollbar-resizer {
+#sidebar-scrollTop::-webkit-resizer{
   background: #e3e7e8;
 }
 /*class*/
@@ -1688,7 +1662,6 @@ http://tc-pis-api-4.epc.baidu.com:8866/index.php?title=text/order
 */
 .secondtitle {
   overflow: hidden;
-  color: 333px;
   line-height: 45px;
   margin: 20px 0 4px 0;
 }
@@ -1807,26 +1780,7 @@ pre.codestyle {
   background: #f4f6f7;
   margin: 15px auto;
 }
-pre.codestyle {
-  scrollbar-arrow-color: #f4f6f7;
-  /*图6,三角箭头的颜色*/
-  scrollbar-face-color: #c5c8c9;
-  /*图5,立体滚动条的颜色*/
-  scrollbar-3dlight-color: #4B5F71;
-  /*图1,立体滚动条亮边的颜色*/
-  scrollbar-highlight-color: #4B5F71;
-  /*图2,滚动条空白部分的颜色*/
-  scrollbar-shadow-color: #999;
-  /*图3,立体滚动条阴影的颜色*/
-  scrollbar-darkshadow-color: #4B5F71;
-  /*图4,立体滚动条强阴影的颜色*/
-  scrollbar-track-color: #f4f6f7;
-  /*图7,立体滚动条背景颜色*/
-  scrollbar-base-color: #f8f8f8;
-  /*滚动条的基本颜色*/
-  Cursor: ;
-  /*自定义个性鼠标*/
-}
+
 /**上边是兼容IE浏览器样式**/
 pre.codestyle::-webkit-scrollbar {
   width: 10px;
@@ -1849,7 +1803,7 @@ pre.codestyle::-webkit-scrollbar-thumb {
 pre.codestyle::-webkit-scrollbar-corner {
   background: #0098dd;
 }
-pre.codestyle::-webkit-scrollbar-resizer {
+pre.codestyle::-webkit-resizer {
   background: #FF0BEE;
 }
 pre.showmapcoder {
@@ -2138,7 +2092,7 @@ pre.showmapcoder {
   padding: 20px;
   overflow: hidden;
   word-wrap: break-word;
-  color: 666;
+  color: #2aabd2;
   border-left: 4px solid #fff;
 }
 .mapfunction .infor {
