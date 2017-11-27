@@ -133,6 +133,11 @@
               <div id="searchBy" class="row"></div>
             </div>
             <div class="modal-footer">
+                <div id="alert-search" v-show="isShow" class="alert-search row alert alert-danger alert-dismissible fade in" role="alert">
+                <button id="closeAlert" type="button" class="close"  aria-label="Close" >
+                  <span aria-hidden="true" >×</span></button>
+                <strong>提示：</strong> {{errorMSG}}
+              </div>
               <button id="searchClose" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
               <button id="searchBegin" type="button" class="btn btn-primary">搜索</button>
             </div>
@@ -148,6 +153,8 @@
 
   export default {
     mounted: function() {
+      var that = this;
+
       //日期插件初始化
       $(".form_datetime").datetimepicker({
         format: "yyyy-mm-dd hh:ii:ss"
@@ -233,20 +240,12 @@
         var searchFlag = $("#searchBy").children().length;
         if(searchFlag <= 0)
         {
-          var value = '<div id="alert-search" class="alert-search row alert alert-danger alert-dismissible fade in" role="alert">\
-                          <button type="button" class="close"  aria-label="Close" data-dismiss="alert">\
-                          <span aria-hidden="true">×</span></button>\
-                        <strong>提示：</strong> 未选择任何标签.\
-                        </div>';
-          $(".modal-footer").prepend(value);
-          $("#alert-search").animate({opacity:"0.3"},5000,"swing",function () {
-            $("#alert-search").remove();
-          });
+          that.alertShow();
         }
         else
         {
           //启动搜索
-          //this.searchStart11();
+          that.searchStart();
         }
       });
 
@@ -257,10 +256,42 @@
 
       //关闭模态框回调
       $('#searchCommit').on('hidden.bs.modal', function () {
-        //清除警告信息
-        $(".alert-search").stop(true,true);
-        $(".alert-search").remove();
+        that.alertHide();
       })
+
+      $("#closeAlert").click(function () {
+        that.alertHide();
+      });
+    },
+
+    data () {
+      return {
+        isShow: false,
+        errorMSG: '未选择任何标签.'
+      }
+    },
+
+    methods:{
+      searchStart() {
+        this.$emit('search','searchStart');
+      },
+
+      alertShow()
+      {
+        var that = this;
+        that.isShow = true;
+        $("#alert-search").animate({opacity:"0.3"},5000,"swing",function () {
+          that.isShow = false;
+        });
+      },
+
+      alertHide()
+      {
+        //清除警告信息
+        $("#alert-search").stop(true,true);
+        this.isShow = false;
+        $("#alert-search").css("opacity",1);
+      }
     }
   }
 

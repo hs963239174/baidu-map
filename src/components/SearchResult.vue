@@ -1,6 +1,6 @@
 <template>
-	<div id="searchResult">
-    <aside  id="searchContent" class="perfectScrollbar">
+	<div id="searchResult" >
+    <aside  id="searchContent" class="perfectScrollbar" v-show="isSearchShow">
       <div id="sidebar" style="position: absolute; left: 0px; height: 90%; width:30%; top: 0; margin: 0px;">
         <div id="sidebar-scrollTop" style="top: 55px;">
 
@@ -33,16 +33,33 @@
 <script>
   export default {
     mounted: function() {
-      //$("#searchContent").css("right","0px");
-      this.show();
+      $("#searchContent").css("right","0px");
+      //this.show();
       //this.hide();
     },
+
+    props: ['isSearch'],
+
     methods:{
+
       show:function () {
-        $("#searchContent").animate({"width":"300px"},500);
+        $("#searchContent").animate({width:"300px"},500);
       },
+
       hide:function () {
         $("#searchContent").animate({width:"0px"},500);
+      }
+    },
+
+    computed: {
+      isSearchShow () {
+        if (this.isSearch == 'true') {
+          this.show();
+          return true;
+        } else {
+          this.hide();
+          return false;
+        }
       }
     }
   }

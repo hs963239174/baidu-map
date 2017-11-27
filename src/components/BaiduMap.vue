@@ -2,8 +2,8 @@
 
   <div id="mainPage" class="container-fluid">
       <div id="mapContent" class="userMap" style="z-index: 0;"></div>
-      <TypeSelector></TypeSelector>
-      <SearchResult></SearchResult>
+      <TypeSelector @search = "isSearchStart"></TypeSelector>
+      <SearchResult :isSearch = "searchFlag"></SearchResult>
       <DeviceInfo ref="newCamera"></DeviceInfo>
   </div>
 </template>
@@ -21,6 +21,13 @@
       TypeSelector,
       SearchResult
     },
+
+    data () {
+      return {
+        searchFlag: 'false'
+      }
+    },
+
     mounted:function () {
       var map = new BMap.Map("mapContent",{enableMapClick:false});          // 创建地图实例
       var point = new BMap.Point(114.328428,22.994956);  // 创建点坐标
@@ -44,6 +51,14 @@
       var square1 = this.$refs.newCamera.initIconClass(html1,map,new BMap.Point(114.356995,23.014017));//初始化摄像头对象
       var square2 = this.$refs.newCamera.initIconClass(html2,map,new BMap.Point(114.316995,23.014017));//初始化摄像头对象
       ////-------------------------------------TEST----------------------------------------------------------////
+    },
+
+    methods: {
+      isSearchStart (data) {
+        if (data == 'searchStart') {
+          this.searchFlag = 'true'
+        }
+      }
     }
   }
 </script>
