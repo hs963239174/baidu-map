@@ -35,7 +35,7 @@
     mounted: function() {
       $("#searchContent").css("right","0px");
       //this.show();
-      //this.hide();
+      //setInterval("$(\"#searchContent\").animate({width:\"0px\"},500);",5000);
     },
 
     props: ['isSearch'],
@@ -55,10 +55,8 @@
       isSearchShow () {
         if (this.isSearch == 'true') {
           this.show();
+          this.isSearch == 'false'
           return true;
-        } else {
-          this.hide();
-          return false;
         }
       }
     }

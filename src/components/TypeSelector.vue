@@ -267,13 +267,16 @@
     data () {
       return {
         isShow: false,
-        errorMSG: '未选择任何标签.'
+        errorMSG: '未选择任何标签.',
+        searchMSG:'searchStop'
       }
     },
 
     methods:{
       searchStart() {
-        this.$emit('search','searchStart');
+        this.searchMSG = "searchStart";
+        this.$emit('search',this.searchMSG);
+        this.searchMSG = "searchStop";
       },
 
       alertShow()

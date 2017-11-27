@@ -56,7 +56,7 @@
     methods: {
       isSearchStart (data) {
         if (data == 'searchStart') {
-          this.searchFlag = 'true'
+          this.searchFlag = 'true';
         }
       }
     }
