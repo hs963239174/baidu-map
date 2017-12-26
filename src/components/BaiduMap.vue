@@ -1,5 +1,4 @@
 <template>
-
   <div id="mainPage" class="container-fluid">
       <div id="mapContent" class="userMap" style="z-index: 0;"></div>
       <TypeSelector @search = "isSearchStart"></TypeSelector>

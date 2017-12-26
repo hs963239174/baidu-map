@@ -21,8 +21,7 @@
       initIconStyle(iconID){
         var div = document.createElement("div");
         div.id=iconID;
-        div.innerHTML="<span class='label badge-important'>摄像头："+iconID+"</span>\
-                      <i class='icon-facetime-video icon-3x'></i>";
+        div.innerHTML="<img src='/src/assets/img/camera.png'>";
         div.style.position="absolute";
         return div;
       },
